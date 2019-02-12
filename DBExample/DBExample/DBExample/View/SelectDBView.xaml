@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DBExample.SelectDBView">
+    <ContentPage.Content>
+        <StackLayout>
+        <!--<Button Text="Count" Command="{Binding Comm}"/>-->
+            <ListView x:Name="MyListView"
+            ItemsSource="{Binding Todos}"
+            SelectedItem="{Binding SelectedTodo}"
+            CachingStrategy="RecycleElement">
+
+                <!--Custom View Cells-->
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell IsEnabled="True">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Nombre}" Style="{DynamicResource ListItemTextStyle}" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Edad}" Style="{DynamicResource ListItemTextStyle}" HorizontalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

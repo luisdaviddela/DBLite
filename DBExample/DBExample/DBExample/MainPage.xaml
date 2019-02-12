@@ -5,10 +5,28 @@
              x:Class="DBExample.MainPage">
 
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" 
-           HorizontalOptions="Center"
-           VerticalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Horizontal" BackgroundColor="Azure">
+            <Entry Text="{Binding TodoTitle}" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Add" HorizontalOptions="End" Command="{Binding AddCommand}"/>
+        </StackLayout>
+        <ListView x:Name="MyListView"
+            ItemsSource="{Binding Todos}"
+            SelectedItem="{Binding SelectedTodo}"
+            CachingStrategy="RecycleElement">
+
+            <!--Custom View Cells-->
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell IsEnabled="{Binding IsEnabled}">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Title}" Style="{DynamicResource ListItemTextStyle}" HorizontalOptions="Start"/>
+                            <Switch IsToggled="{Binding IsDone}" HorizontalOptions="End" IsEnabled="{Binding IsEnabled}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </StackLayout>
 
 </ContentPage>

@@ -12,6 +12,7 @@ namespace DBExample
         public MainPage()
         {
             InitializeComponent();
+            BindingContext = new TodoViewModel();
         }
     }
 }

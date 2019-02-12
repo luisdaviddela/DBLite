@@ -11,7 +11,7 @@ namespace DBExample
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new MainDb());
         }
 
         protected override void OnStart()

@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="DBExample.MainDb">
+    <ContentPage.Content>
+        <StackLayout Spacing="30" Padding="50">
+            <Button Text="Insert" BorderRadius="30" x:Name="insert" Clicked="insert_Clicked"/>
+            <Button Text="Select" BorderRadius="30" x:Name="select" Clicked="select_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
