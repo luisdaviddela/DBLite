@@ -10,7 +10,6 @@ namespace DBExample
         public App()
         {
             InitializeComponent();
-
             MainPage = new NavigationPage(new MainDb());
         }
 
