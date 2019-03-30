@@ -15,6 +15,7 @@ namespace DBExample
         public DeleteDBView()
         {
             InitializeComponent();
+            BindingContext = new DeleteViewModel();
         }
     }
 }

@@ -26,5 +26,11 @@ namespace DBExample
         {
             Navigation.PushAsync(new SelectDBView());
         }
+
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+
+            Navigation.PushAsync(new DeleteDBView());
+        }
     }
 }
