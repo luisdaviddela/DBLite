@@ -26,6 +26,8 @@ namespace DBExample
         {
             _liteDBService = new PersonLiteDBService();
             var todos = _liteDBService.ReadAllItems();
+            //var sg = todos.Count();
+            //Application.Current.MainPage.DisplayAlert("dsa", sg.ToString(), "da");
             if (todos.Any())
             {
                 Todos = new ReactiveList<PersonModel>(todos) { ChangeTrackingEnabled = true };

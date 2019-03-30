@@ -7,7 +7,8 @@ namespace DBExample.Droid
     {
         public string DatabasePath()
         {
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), DB3.DATABASE_NAME);
+            var path =
+                Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), DB3.DATABASE_NAME);
 
             if (!File.Exists(path))
             {
