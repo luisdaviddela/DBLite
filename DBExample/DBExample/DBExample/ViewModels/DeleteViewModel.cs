@@ -6,6 +6,7 @@ namespace DBExample
     internal class DeleteViewModel:ReactiveObject, INotifyPropertyChanged
     {
         ReactiveList<PersonModel> _todos;
+        private PersonModel selectedCategories;
         public ReactiveList<PersonModel> Todos
         {
             get => _todos;
@@ -35,20 +36,20 @@ namespace DBExample
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public PersonModel YourSelectedItem
+        public PersonModel SelectedCategories
         {
-            get
-            {
-                return _yourSelectedItem;
-            }
-
+            get { return selectedCategories; }
             set
             {
-                _yourSelectedItem = value;
-                //OnPropertyChanged("YourSelectedItem");
-
+                if (selectedCategories != value)
+                {
+                    OnTapSelectedCategories();
+                }
             }
         }
-
+        private async void OnTapSelectedCategories()
+        {
+           
+        }
     }
 }

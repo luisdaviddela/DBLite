@@ -7,8 +7,6 @@
             <Button Text="Insert" BorderRadius="30" x:Name="insert" Clicked="insert_Clicked"/>
             <Button Text="Select" BorderRadius="30" x:Name="select" Clicked="select_Clicked"/>
             <Button Text="Delete" BorderRadius="30" x:Name="Delete" Clicked="Delete_Clicked"/>
-
-
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

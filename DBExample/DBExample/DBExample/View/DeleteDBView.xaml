@@ -7,7 +7,7 @@
             <!--<Button Text="Count" Command="{Binding Comm}"/>-->
             <ListView x:Name="MyListView"
             ItemsSource="{Binding Todos}"
-            SelectedItem="{Binding YourSelectedItem, Mode=TwoWay}"
+            SelectedItem="{Binding SelectedCategories}"
             CachingStrategy="RecycleElement">
 
                 <!--Custom View Cells-->

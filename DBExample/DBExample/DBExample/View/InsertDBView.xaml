@@ -4,8 +4,8 @@
              x:Class="DBExample.InsertDBView">
     <ContentPage.Content>
         <StackLayout BackgroundColor="Azure">
-            <Entry Text="{Binding Nombre}" />
-            <Entry Text="{Binding Edad}" />
+            <Entry Text="{Binding Nombre}" Placeholder="Nombre"/>
+            <Entry Text="{Binding Edad}" Placeholder="Edad" Keyboard="Numeric"/>
             <Button Text="Add" HorizontalOptions="End" Command="{Binding AddCommand}"/>
         </StackLayout>
     </ContentPage.Content>
