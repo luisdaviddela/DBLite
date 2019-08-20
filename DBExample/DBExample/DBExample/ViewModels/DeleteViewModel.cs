@@ -9,8 +9,6 @@ namespace DBExample
     internal class DeleteViewModel:ReactiveObject, INotifyPropertyChanged
     {
         ReactiveList<PersonModel> _todos;
-        private PersonModel selectedCategories;
-        public ReactiveCommand DeleteCommand { get; private set; }
         public ReactiveList<PersonModel> Todos
         {
             get => _todos;
@@ -21,32 +19,18 @@ namespace DBExample
         public DeleteViewModel()
         {
             _liteDBService = new PersonLiteDBService();
+            cargarLista();
+        }
+        void cargarLista()
+        {
             var todos = _liteDBService.ReadAllItems();
-            
+
             if (todos.Any())
             {
                 Todos = new ReactiveList<PersonModel>(todos) { ChangeTrackingEnabled = true };
             }
             else { Todos = new ReactiveList<PersonModel>() { ChangeTrackingEnabled = true }; }
-
-            
         }
-       
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        public PersonModel SelectedCategories
-        {
-            get { return selectedCategories; }
-            set
-            {
-                if (selectedCategories != value)
-                {
-                    SetProperty(ref selectedCategories, value);
-                    OnTapSelectedCategories();
-                }
-            }
-        }
-
         protected virtual bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
         {
             if (object.Equals(field, value)) { return false; }
@@ -63,14 +47,29 @@ namespace DBExample
         {
             try
             {
-                
                 var todo = new PersonModel() { Id = SelectedCategories.Id, Nombre = SelectedCategories.Nombre, Edad = SelectedCategories.Edad };
                 _liteDBService.DeleteItemAsync(todo);
                 await Application.Current.MainPage.DisplayAlert("LiteDB Message", "Eliminado correctamente", "Ok");
+                
             }
             catch (System.Exception ex)
             {
                 await Application.Current.MainPage.DisplayAlert("LiteDB Error",ex.Message,"Ok");
+            }
+        }
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private PersonModel selectedCategories;
+        public PersonModel SelectedCategories
+        {
+            get { return selectedCategories; }
+            set
+            {
+                if (selectedCategories != value)
+                {
+                    SetProperty(ref selectedCategories, value);
+                    OnTapSelectedCategories();
+                }
             }
         }
     }
